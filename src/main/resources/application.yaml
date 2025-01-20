@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:local}
+  application:
+  name: petstore
+
+application-properties:
+  projectId: ${PROJECT_ID:testProject}
+  databaseId: ${DATABASE_ID:localDatabase}
+  firebaseHost: localhost:9085
