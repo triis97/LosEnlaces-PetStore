@@ -18,12 +18,12 @@ public class PetController implements IPetController {
     private final IPetService petService;
 
     @Override
-    public ResponseEntity<PetResponse> savePet(Pet pet) throws ExecutionException, InterruptedException {
+    public ResponseEntity<PetResponse> savePet(final Pet pet) throws ExecutionException, InterruptedException {
         return new ResponseEntity<>(petService.savePet(pet), HttpStatusCode.valueOf(201));
     }
 
     @Override
-    public ResponseEntity<PetResponse> getPetById(String id) throws ExecutionException, InterruptedException {
+    public ResponseEntity<PetResponse> getPetById(final String id) throws ExecutionException, InterruptedException {
         return new ResponseEntity<>(petService.getPetById(id), HttpStatusCode.valueOf(200));
     }
 
@@ -33,12 +33,12 @@ public class PetController implements IPetController {
     }
 
     @Override
-    public ResponseEntity<PetResponse> updatePetById(String id, Pet pet) throws ExecutionException, InterruptedException {
+    public ResponseEntity<PetResponse> updatePetById(final String id, final Pet pet) throws ExecutionException, InterruptedException {
         return new ResponseEntity<>(petService.updatePetById(id, pet), HttpStatusCode.valueOf(200));
     }
 
     @Override
-    public ResponseEntity<PetResponse> deletePetById(String id) throws ExecutionException, InterruptedException {
+    public ResponseEntity<PetResponse> deletePetById(final String id) throws ExecutionException, InterruptedException {
         return new ResponseEntity<>(petService.deletePetById(id), HttpStatusCode.valueOf(200));
     }
 }

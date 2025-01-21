@@ -19,4 +19,10 @@ public class ProblemDetails {
         this.code =  httpStatusCode.value();
         this.status = httpStatusCode.getReasonPhrase();
     }
+
+    public ProblemDetails(final String message, final HttpStatus httpStatusCode){
+        this.message = message;
+        this.code =  httpStatusCode.value();
+        this.status = httpStatusCode.getReasonPhrase();
+    }
 }

@@ -44,6 +44,9 @@ public class PetService implements IPetService {
     @Override
     public PetResponse updatePetById(String documentId, Pet pet) throws ExecutionException, InterruptedException {
         final DocumentReference docRef = firestore.collection(COLLECTION_NAME).document(documentId);
+        if (!docRef.get().get().exists()) {
+            throw new PetNotFoundException(documentId);
+        }
         docRef.set(pet).get();
         return docRef.get().get().toObject(PetResponse.class);
     }

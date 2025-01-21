@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +42,7 @@ public interface IPetController {
             }
     )
     @PostMapping(value = "/pet")
-    ResponseEntity<PetResponse> savePet(@RequestBody Pet pet) throws ExecutionException, InterruptedException;
+    ResponseEntity<PetResponse> savePet(@Valid @RequestBody final Pet pet) throws ExecutionException, InterruptedException;
 
     @Operation(
             summary = "Retrieve a pet by its ID",
@@ -73,7 +74,7 @@ public interface IPetController {
             }
     )
     @GetMapping(value = "/pet/{id}")
-    ResponseEntity<PetResponse> getPetById(@PathVariable("id") String id) throws ExecutionException, InterruptedException;
+    ResponseEntity<PetResponse> getPetById(@PathVariable("id") final String id) throws ExecutionException, InterruptedException;
 
     @Operation(
             summary = "Retrieve all pets",
@@ -130,7 +131,7 @@ public interface IPetController {
             }
     )
     @PutMapping(value = "/pet/{id}")
-    ResponseEntity<PetResponse> updatePetById(@PathVariable("id") String id, @RequestBody Pet pet) throws ExecutionException, InterruptedException;
+    ResponseEntity<PetResponse> updatePetById(@PathVariable("id") final String id, @Valid @RequestBody Pet pet) throws ExecutionException, InterruptedException;
 
     @Operation(
             summary = "Delete a pet by its ID",
@@ -162,5 +163,5 @@ public interface IPetController {
             }
     )
     @DeleteMapping(value = "/pet/{id}")
-    ResponseEntity<PetResponse> deletePetById(@PathVariable("id") String id) throws ExecutionException, InterruptedException;
+    ResponseEntity<PetResponse> deletePetById(@PathVariable("id") final String id) throws ExecutionException, InterruptedException;
 }
