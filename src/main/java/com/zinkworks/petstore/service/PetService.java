@@ -17,6 +17,7 @@ import java.util.concurrent.ExecutionException;
 @Service
 @RequiredArgsConstructor
 public class PetService implements IPetService {
+    //TODO: make this name configurable
     private static final String COLLECTION_NAME = "pet-collection";
     private final Firestore firestore;
     final ObjectMapper objectMapper = new ObjectMapper();
