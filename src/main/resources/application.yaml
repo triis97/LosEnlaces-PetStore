@@ -7,4 +7,5 @@ spring:
 application-properties:
   projectId: ${PROJECT_ID:testProject}
   databaseId: ${DATABASE_ID:localDatabase}
+  collectionName: ${COLLECTION_NAME:pet-collection}
   firebaseHost: ${FIREBASE_HOST:localhost:9085}

@@ -8,3 +8,6 @@ docker run -e FIREBASE_HOST=host.docker.internal:9085 -p 8080:8080 europe-southw
 
 
 mvn clean test
+
+
+https://miro.com/welcome/VnV4ajlON3NwNzVqVFY5QVRHL0k4eWtUVHZVbFBaNVFWanRsUGUvVmZsM2VsQ09PZWhxV3EzN3I1YTVwT25iTFY5dUZ6Mm1nSlcyUDNzekRNNmg0SFo4a3BrRnozNTNNVWZPd0p5T3BsZXJiWmorUDNpcVYyVVNxRDkyTmZUZXohZQ==?share_link_id=972822618721

@@ -10,5 +10,6 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationProperties {
     private String projectId;
     private String databaseId;
+    private String collectionName;
     private String firebaseHost;
 }
