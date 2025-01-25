@@ -3,8 +3,3 @@ spring:
     active: ${ACTIVE_PROFILE:local}
   application:
   name: petstore
-
-application-properties:
-  projectId: ${PROJECT_ID:testProject}
-  databaseId: ${DATABASE_ID:localDatabase}
-  firebaseHost: ${FIREBASE_HOST:localhost:9085}
