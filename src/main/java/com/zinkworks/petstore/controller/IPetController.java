@@ -87,8 +87,9 @@ public interface IPetController {
                             description = "Pets successfully retrieved",
                             content = @Content(
                                     mediaType = MediaType.APPLICATION_JSON_VALUE,
-                                    schema = @Schema(implementation = PetResponse.class)
-                            )),
+                                    schema = @Schema(implementation = PetResponse[].class)
+                            )
+                    ),
                     @ApiResponse(
                             responseCode = "500",
                             description = "Internal server error",

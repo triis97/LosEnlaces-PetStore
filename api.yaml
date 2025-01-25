@@ -1,0 +1,261 @@
+openapi: 3.1.0
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /pet-shop/pet/{id}:
+    get:
+      tags:
+        - pet-controller
+      summary: Retrieve a pet by its ID
+      description: This method will retrieve a pet from the system using its ID
+      operationId: getPetById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "404":
+          description: Pet not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "200":
+          description: Pet successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PetResponse"
+    put:
+      tags:
+        - pet-controller
+      summary: Update a pet by its ID
+      description: This method will update a pet in the system using its ID
+      operationId: updatePetById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+        required: true
+      responses:
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "404":
+          description: Pet not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "200":
+          description: Pet successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PetResponse"
+    delete:
+      tags:
+        - pet-controller
+      summary: Delete a pet by its ID
+      description: This method will delete a pet from the system using its ID
+      operationId: deletePetById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "404":
+          description: Pet not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "200":
+          description: Pet successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PetResponse"
+  /pet-shop/pet:
+    post:
+      tags:
+        - pet-controller
+      summary: Introduce a new pet into the system
+      description: This method will receive a pet in the request and insert it into
+        firestore
+      operationId: savePet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+        required: true
+      responses:
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "201":
+          description: Pet successfully saved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PetResponse"
+  /pet-shop/pets:
+    get:
+      tags:
+        - pet-controller
+      summary: Retrieve all pets
+      description: This method will retrieve all pets from the system
+      operationId: getAllPets
+      responses:
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "200":
+          description: Pets successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PetResponse"
+components:
+  schemas:
+    ProblemDetails:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+      required:
+        - code
+        - message
+        - status
+    Pet:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+            - CAT
+            - DOG
+            - BIRD
+            - FERRET
+            - RABBIT
+            - FISH
+            - REPTILE
+            - OTHER
+      required:
+        - description
+        - name
+        - type
+    PetResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+            - CAT
+            - DOG
+            - BIRD
+            - FERRET
+            - RABBIT
+            - FISH
+            - REPTILE
+            - OTHER
+        documentId:
+          type: string
+      required:
+        - description
+        - name
+        - type
