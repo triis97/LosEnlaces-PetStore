@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "388e0dd9-a3d5-44a1-b01b-ce965f6c2744",
+		"name": "Pet Store Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32755283"
+	},
+	"item": [
+		{
+			"name": "Create Pet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"leela\",\n    \"description\": \"Crazy little cat\",\n    \"type\": \"CAT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pet-shop/pet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pet-shop",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All pets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pet-shop/pets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pet-shop",
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pet By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pet-shop/pet/0wR0eS3L0vjrl9w6Huh3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pet-shop",
+						"pet",
+						"0wR0eS3L0vjrl9w6Huh3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Pet",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"leela\",\r\n    \"description\": \"UPDATED - Crazy little cat\",\r\n    \"type\": \"CAT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pet-shop/pet/0wR0eS3L0vjrl9w6Huh3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pet-shop",
+						"pet",
+						"0wR0eS3L0vjrl9w6Huh3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Pete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pet-shop/pet/0wR0eS3L0vjrl9w6Huh3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pet-shop",
+						"pet",
+						"0wR0eS3L0vjrl9w6Huh3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
