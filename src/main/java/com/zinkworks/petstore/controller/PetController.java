@@ -1,6 +1,7 @@
 package com.zinkworks.petstore.controller;
 
 import com.zinkworks.petstore.model.Pet;
+import com.zinkworks.petstore.model.PetResponse;
 import com.zinkworks.petstore.service.IPetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatusCode;
@@ -18,7 +19,7 @@ public class PetController implements IPetController { // Implementamos la inter
     private final IPetService petService;
 
     @Override
-    public ResponseEntity<Pet> savePet(final Pet pet) {
-        return new ResponseEntity<>(pet, HttpStatusCode.valueOf(201));
+    public ResponseEntity<PetResponse> savePet(final Pet pet) throws ExecutionException, InterruptedException {
+        return new ResponseEntity<>(petService.savePet(pet), HttpStatusCode.valueOf(201));
     }
 }

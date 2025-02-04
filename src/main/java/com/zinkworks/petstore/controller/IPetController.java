@@ -1,6 +1,7 @@
 package com.zinkworks.petstore.controller;
 
 import com.zinkworks.petstore.model.Pet;
+import com.zinkworks.petstore.model.PetResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -19,5 +20,5 @@ public interface IPetController {
     @PostMapping(value = "/pet") // Anotación para mapear solicitudes HTTP POST
     // @RequestBody: Anotación para indicar que el parámetro debe ser tomado del cuerpo de la solicitud HTTP
     // @Valid: Anotación para validar el objeto recibido en el cuerpo de la solicitud
-    ResponseEntity<Pet> savePet(@Valid @RequestBody final Pet pet);
+    ResponseEntity<PetResponse> savePet(@Valid @RequestBody final Pet pet) throws ExecutionException, InterruptedException;
 }
