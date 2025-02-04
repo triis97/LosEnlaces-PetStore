@@ -1,7 +1,6 @@
 package com.zinkworks.petstore.controller;
 
 import com.zinkworks.petstore.model.Pet;
-import com.zinkworks.petstore.model.PetResponse;
 import com.zinkworks.petstore.service.IPetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatusCode;
@@ -19,27 +18,7 @@ public class PetController implements IPetController { // Implementamos la inter
     private final IPetService petService;
 
     @Override
-    public ResponseEntity<PetResponse> savePet(final Pet pet) throws ExecutionException, InterruptedException {
-        return new ResponseEntity<>(petService.savePet(pet), HttpStatusCode.valueOf(201));
-    }
-
-    @Override
-    public ResponseEntity<PetResponse> getPetById(final String id) throws ExecutionException, InterruptedException {
-        return new ResponseEntity<>(petService.getPetById(id), HttpStatusCode.valueOf(200));
-    }
-
-    @Override
-    public ResponseEntity<List<PetResponse>> getAllPets() throws ExecutionException, InterruptedException {
-        return new ResponseEntity<>(petService.getAllPets(), HttpStatusCode.valueOf(200));
-    }
-
-    @Override
-    public ResponseEntity<PetResponse> updatePetById(final String id, final Pet pet) throws ExecutionException, InterruptedException {
-        return new ResponseEntity<>(petService.updatePetById(id, pet), HttpStatusCode.valueOf(200));
-    }
-
-    @Override
-    public ResponseEntity<PetResponse> deletePetById(final String id) throws ExecutionException, InterruptedException {
-        return new ResponseEntity<>(petService.deletePetById(id), HttpStatusCode.valueOf(200));
+    public ResponseEntity<Pet> savePet(final Pet pet) {
+        return new ResponseEntity<>(pet, HttpStatusCode.valueOf(201));
     }
 }
