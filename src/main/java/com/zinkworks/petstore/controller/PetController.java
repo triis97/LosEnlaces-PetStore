@@ -22,4 +22,9 @@ public class PetController implements IPetController { // Implementamos la inter
     public ResponseEntity<PetResponse> savePet(final Pet pet) throws ExecutionException, InterruptedException {
         return new ResponseEntity<>(petService.savePet(pet), HttpStatusCode.valueOf(201));
     }
+
+    @Override
+    public ResponseEntity<List<PetResponse>> getAllPets() throws ExecutionException, InterruptedException {
+        return new ResponseEntity<>(petService.getAllPets(), HttpStatusCode.valueOf(200));
+    }
 }

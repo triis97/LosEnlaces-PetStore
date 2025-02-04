@@ -10,6 +10,7 @@ import com.zinkworks.petstore.properties.ApplicationProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @Service // Anotación de Spring para indicar que esta clase es un servicio
@@ -24,5 +25,13 @@ public class PetService implements IPetService {
         final DocumentReference docRef = firestore.collection(applicationProperties.getCollectionName()).document();
         docRef.set(pet).get();
         return docRef.get().get().toObject(PetResponse.class);
+    }
+
+    @Override
+    public List<PetResponse> getAllPets() throws ExecutionException, InterruptedException {
+        return firestore.collection(applicationProperties.getCollectionName())
+                .get()
+                .get()
+                .toObjects(PetResponse.class);
     }
 }

@@ -14,6 +14,7 @@ import java.util.UUID;
 
 @Configuration //Anotacion para que SpringBoot reconozca esta clase como una clase especial de configuracion
 public class ApplicationConfig {
+
     @Bean //Anotacion para indicar que este metodo se debe usar para inyeccion de dependencias
     @Profile("default") // Anotacion para asociar este metodo con el perfil default
     //Metodo utilizado por SpringBoot para instanciar el Objecto de typo Firestore
