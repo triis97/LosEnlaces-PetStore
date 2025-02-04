@@ -26,19 +26,25 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT) // Anotación de Spring Boot para indicar que se debe iniciar un servidor web en un puerto aleatorio para las pruebas
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD) // Anotación para indicar que el contexto de la aplicación debe ser ensuciado después de cada método de prueba
 class PetstoreApplicationTests {
 
-	@Autowired
+	@Autowired // Anotación para inyectar automáticamente el bean TestRestTemplate en la clase de prueba
 	private TestRestTemplate restTemplate;
 
-	@MockitoBean private Firestore firestore;
-	@MockitoBean private CollectionReference collectionReference;
-	@MockitoBean private DocumentReference documentReference;
-	@MockitoBean private QuerySnapshot querySnapshot;
-	@MockitoBean private DocumentSnapshot documentSnapshot;
-	@MockitoBean private WriteResult writeResult;
+	@MockitoBean // Anotación para crear e inyectar un mock del bean Firestore
+	private Firestore firestore;
+	@MockitoBean // Anotación para crear e inyectar un mock del bean CollectionReference
+	private CollectionReference collectionReference;
+	@MockitoBean // Anotación para crear e inyectar un mock del bean DocumentReference
+	private DocumentReference documentReference;
+	@MockitoBean // Anotación para crear e inyectar un mock del bean QuerySnapshot
+	private QuerySnapshot querySnapshot;
+	@MockitoBean // Anotación para crear e inyectar un mock del bean DocumentSnapshot
+	private DocumentSnapshot documentSnapshot;
+	@MockitoBean // Anotación para crear e inyectar un mock del bean WriteResult
+	private WriteResult writeResult;
 
 	@BeforeEach
 	void setUp(){

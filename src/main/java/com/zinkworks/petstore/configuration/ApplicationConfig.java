@@ -12,11 +12,13 @@ import org.springframework.context.annotation.Profile;
 import java.io.IOException;
 import java.util.UUID;
 
-@Configuration
+@Configuration //Anotacion para que SpringBoot reconozca esta clase como una clase especial de configuracion
 public class ApplicationConfig {
 
-    @Bean
-    @Profile("default")
+
+    @Bean //Anotacion para indicar que este metodo se debe usar para inyeccion de dependencias
+    @Profile("default") // Anotacion para asociar este metodo con el perfil default
+    //Metodo utilizado por SpringBoot para instanciar el Objecto de typo Firestore
     public Firestore firestore(final ApplicationProperties applicationProperties) throws IOException {
         final FirestoreOptions firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder()
                 .setProjectId(applicationProperties.getProjectId())
@@ -26,8 +28,9 @@ public class ApplicationConfig {
         return firestoreOptions.getService();
     }
 
-    @Bean
-    @Profile("local")
+    @Bean // Anotacion para indicar que este metodo se debe usar para inyeccion de dependencias
+    @Profile("local") // Anotacion para asociar este metodo con el perfil local
+    // Metodo utilizado por SpringBoot para instanciar el Objecto de typo Firestore en un entorno local
     public Firestore firestoreLocal(final ApplicationProperties applicationProperties) {
         FirestoreOptions options = FirestoreOptions
                 .getDefaultInstance()

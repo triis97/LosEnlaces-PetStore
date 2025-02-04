@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-@RequestMapping("pet-shop")
+@RequestMapping("pet-shop") // Anotación para mapear solicitudes HTTP a métodos de controlador
 public interface IPetController {
 
     @Operation(
-            summary = "Introduce a new pet into the system",
-            description = "This method will receive a pet in the request and insert it into firestore"
+            summary = "Introduce a new pet into the system", // Resumen de la operación
+            description = "This method will receive a pet in the request and insert it into firestore" // Descripción de la operación
     )
     @ApiResponses(
             value = {
@@ -41,7 +41,9 @@ public interface IPetController {
                             ))
             }
     )
-    @PostMapping(value = "/pet")
+    @PostMapping(value = "/pet") // Anotación para mapear solicitudes HTTP POST
+    // @RequestBody: Anotación para indicar que el parámetro debe ser tomado del cuerpo de la solicitud HTTP
+    // @Valid: Anotación para validar el objeto recibido en el cuerpo de la solicitud
     ResponseEntity<PetResponse> savePet(@Valid @RequestBody final Pet pet) throws ExecutionException, InterruptedException;
 
     @Operation(
@@ -73,7 +75,8 @@ public interface IPetController {
                             ))
             }
     )
-    @GetMapping(value = "/pet/{id}")
+    @GetMapping(value = "/pet/{id}") // Anotación para mapear solicitudes HTTP GET
+    // @PathVariable: Anotación para indicar que el valor del parámetro debe ser tomado de la variable de ruta en la URL
     ResponseEntity<PetResponse> getPetById(@PathVariable("id") final String id) throws ExecutionException, InterruptedException;
 
     @Operation(
@@ -99,7 +102,7 @@ public interface IPetController {
                             ))
             }
     )
-    @GetMapping(value = "/pets")
+    @GetMapping(value = "/pets") // Anotación para mapear solicitudes HTTP GET
     ResponseEntity<List<PetResponse>> getAllPets() throws ExecutionException, InterruptedException;
 
     @Operation(
@@ -131,7 +134,7 @@ public interface IPetController {
                             ))
             }
     )
-    @PutMapping(value = "/pet/{id}")
+    @PutMapping(value = "/pet/{id}") // Anotación para mapear solicitudes HTTP PUT
     ResponseEntity<PetResponse> updatePetById(@PathVariable("id") final String id, @Valid @RequestBody Pet pet) throws ExecutionException, InterruptedException;
 
     @Operation(
@@ -163,6 +166,6 @@ public interface IPetController {
                             ))
             }
     )
-    @DeleteMapping(value = "/pet/{id}")
+    @DeleteMapping(value = "/pet/{id}") // Anotación para mapear solicitudes HTTP DELETE
     ResponseEntity<PetResponse> deletePetById(@PathVariable("id") final String id) throws ExecutionException, InterruptedException;
 }

@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
-@Service
-@RequiredArgsConstructor
+@Service // Anotación de Spring para indicar que esta clase es un servicio
+@RequiredArgsConstructor // Anotación de Lombok para generar un constructor con los argumentos necesarios para los campos finales
 public class PetService implements IPetService {
     private final Firestore firestore;
     private final ApplicationProperties applicationProperties;

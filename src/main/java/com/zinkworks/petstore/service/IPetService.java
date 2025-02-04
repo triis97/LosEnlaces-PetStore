@@ -6,6 +6,7 @@ import com.zinkworks.petstore.model.PetResponse;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+// Interfaz que define el contrato para las operaciones de PetService.
 public interface IPetService {
     PetResponse savePet(final Pet pet) throws ExecutionException, InterruptedException;
     PetResponse getPetById(final String documentId) throws ExecutionException, InterruptedException;

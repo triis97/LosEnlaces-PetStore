@@ -6,12 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-@Data
-@SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
+@Data // Anotación de Lombok para generar automáticamente los métodos getter, setter, equals, hashCode y toString
+@SuperBuilder // Anotación de Lombok para generar un patrón de diseño Builder que permite herencia
+@AllArgsConstructor // Anotación de Lombok para generar un constructor con todos los argumentos
+@NoArgsConstructor // Anotación de Lombok para generar un constructor sin argumentos
 public class Pet {
-    @NotNull private String name;
-    @NotNull private String description;
-    @NotNull private AnimalTypes type;
+    @NotNull private String name; // Anotación para validar que el campo no sea nulo
+    @NotNull private String description; // Anotación para validar que el campo no sea nulo
+    @NotNull private AnimalTypes type; // Anotación para validar que el campo no sea nulo
 }

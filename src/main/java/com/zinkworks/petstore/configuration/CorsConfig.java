@@ -6,10 +6,11 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-@Configuration
+@Configuration // Anotación para indicar que esta clase es una clase de configuración de Spring
 public class CorsConfig {
 
-    @Bean
+    @Bean //Anotacion para indicar que este metodo se debe usar para inyeccion de dependencias
+    // Método para configurar CORS y permitir el acceso desde otros dominios
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
