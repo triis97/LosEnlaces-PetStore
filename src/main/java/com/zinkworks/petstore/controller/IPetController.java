@@ -1,18 +1,9 @@
 package com.zinkworks.petstore.controller;
 
 import com.zinkworks.petstore.model.Pet;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 @RequestMapping("pet-shop") // Anotación para mapear solicitudes HTTP a métodos de controlador
 public interface IPetController {
