@@ -131,7 +131,7 @@ For data storage we are going to use an in-memory DB.
   - git --version
 - [Miro Board](https://miro.com/welcome/VnV4ajlON3NwNzVqVFY5QVRHL0k4eWtUVHZVbFBaNVFWanRsUGUvVmZsM2VsQ09PZWhxV3EzN3I1YTVwT25iTFY5dUZ6Mm1nSlcyUDNzekRNNmg0SFo4a3BrRnozNTNNVWZPd0p5T3BsZXJiWmorUDNpcVYyVVNxRDkyTmZUZXohZQ==?share_link_id=972822618721)
 - Run Firestore locally
-  - gcloud emulators firestore start --host-port=0.0.0.0:9085
+  - gcloud emulators firestore start --host-port=0.0.0.0:9085 --project=testproject
 - Run docker image locally
   - docker run -e FIREBASE_HOST=host.docker.internal:9085 -p 8080:8080 europe-southwest1-docker.pkg.dev/petstore-448521/pet-store-repository/los-enlaces-petstore:1.0.0-SNAPSHOT
 - Execute Jacoco
