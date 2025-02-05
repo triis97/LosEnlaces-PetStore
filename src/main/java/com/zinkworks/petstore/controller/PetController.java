@@ -18,7 +18,12 @@ public class PetController implements IPetController { // Implementamos la inter
     private final IPetService petService;
 
     @Override
-    public ResponseEntity<Pet> savePet(final Pet pet) {
-        return new ResponseEntity<>(pet, HttpStatusCode.valueOf(201));
+    public ResponseEntity<Pet> savePet(final Pet pet) throws ExecutionException, InterruptedException {
+        return new ResponseEntity<>(petService.savePet(pet), HttpStatusCode.valueOf(201));
+    }
+
+    @Override
+    public ResponseEntity<List<Pet>> getAllPets() throws ExecutionException, InterruptedException {
+        return new ResponseEntity<>(petService.getAllPets(), HttpStatusCode.valueOf(200));
     }
 }
