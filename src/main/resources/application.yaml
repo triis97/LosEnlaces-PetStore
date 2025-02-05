@@ -5,7 +5,7 @@ spring:
     name: petstore # Nombre de la aplicación Spring
 
 application-properties:
-  projectId: ${PROJECT_ID:testProject} # ID del proyecto, por defecto 'testProject'
+  projectId: ${PROJECT_ID:testproject} # ID del proyecto, por defecto 'testProject'
   databaseId: ${DATABASE_ID:localDatabase} # ID de la base de datos, por defecto 'localDatabase'
   collectionName: ${COLLECTION_NAME:pet-collection} # Nombre de la colección, por defecto 'pet-collection'
   firebaseHost: ${FIREBASE_HOST:localhost:9085} # Host de Firebase, por defecto 'localhost:9085'
